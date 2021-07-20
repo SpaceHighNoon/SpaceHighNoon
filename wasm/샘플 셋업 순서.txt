@@ -1,0 +1,27 @@
+wasm_exec.js 는 컴파일한 버전과 동일해야 함.
+
+** **
+[big]
+copy "C:\고\misc\wasm\*.html" .\htmL\index.htmL
+copy "C:\고\misc\wasm\*.js" .\htmL\
+
+set GOOS=js
+set GOARCH=wasm
+go build -o ./htmL/test.wasm ./main.go
+
+!! 여기서 커맨드 창을 닫지 않으면, run 에서 에러발생
+
+go run server.go
+
+** **
+[tinygo]
+
+https://wasmbyexample.dev/examples/hello-world/hello-world.go.en-us.html
+
+scoop install tinygo
+
+tinygo build -o ./htmL/main.wasm -target wasm ./main.go
+
+copy "C:\Users\SpaceHighNoon\scoop\apps\tinygo\0.19.0\targets\wasm_exec.js" .\htmL
+
+go run server.go
